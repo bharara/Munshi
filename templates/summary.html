@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	<title>
+		Summary - Munshi
+	</title>
+</head>
+
+<body>
+	<a href='/' class=hbutton>Home</a>
+	<a href='/report' class=hbutton>Report</a>
+
+	<h1>Summary</h1>
+	<h4>Total Roker is {{roker}}</h4>
+
+	<table style="width:70%; margin:auto;">
+		<tr>
+    		<th>Date</th>
+    		<th>{{c_detail1}}</th> 
+    		<th>{{c_detail2}}</th>
+    		<th>{{c_detail3}}</th>
+    		<th>{{c_detail4}}</th>
+    		<th>{{c_detail5}}</th>
+    		<th>Credit</th>
+    		<th>Debit</th>
+  		</tr>
+
+  	{% for row in lst: %}
+  		<tr>
+  			<td>{{row[0]}}</td>
+  			<td>{{row[1]}}</td>
+  			<td>{{row[2]}}</td>
+  			<td>{{row[3]}}</td>
+  			<td>{{row[4]}}</td>
+  			<td>{{row[5]}}</td>
+  			<td align=right>{{row[6]}}</td>
+  			<td align=right>{{row[7]}}</td>
+  		</tr>
+  	{% endfor %}
+  </table>
+
+</body>
+</html>

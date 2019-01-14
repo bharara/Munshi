@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	<title>
+		{{name}} - Munshi
+	</title>
+</head>
+
+<body>
+	<a href='/' class=hbutton>Home</a>
+	<a href='/report' class=hbutton>Report</a>
+	<a href='/report/user' class=hbutton>User Report</a>
+
+	<h1> {{name}} </h1>
+
+	<br>
+
+	<table style="width: 20%; margin: auto;">
+		<tr>
+			<th colspan="2">User Detail</th>
+		</tr>
+		<tr>
+			<td>{{c_detail1}}</td>
+			<td>{{cd1}}</td>
+		</tr>
+		<tr>
+			<td>{{c_detail2}}</td>
+			<td>{{cd2}}</td>
+		</tr>
+		<tr>
+			<td>{{c_detail3}}</td>
+			<td>{{cd3}}</td>
+		</tr>
+		<tr>
+			<td>{{c_detail4}}</td>
+			<td>{{cd4}}</td>
+		</tr>
+		<tr>
+			<td>{{c_detail5}}</td>
+			<td>{{cd5}}</td>
+		</tr>
+		<tr>
+			<td>Credit</td>
+			<td align=right>{{credit}}</td>
+		</tr>
+		
+		<tr>
+			<td>Debit</td>
+			<td align=right>{{debit}}</td>
+		</tr>
+	</table>
+		
+	<br><br>
+
+	<table style="width:70%; margin:auto;">
+		<tr>
+    		<th>Date</th>
+    		<th>{{in_detail1}}</th> 
+    		<th>{{in_detail2}}</th>
+    		<th>{{in_detail3}}</th>
+    		<th>Credit</th>
+    		<th>Debit</th>
+  		</tr>
+  	{% for row in outlist %}
+  		<tr>
+  			<td>{{row[0]}}</td>
+  			<td>{{row[1]}}</td>
+  			<td>{{row[2]}}</td>
+  			<td>{{row[3]}}</td>
+  			<td align=right>{{row[4]}}</td>
+  			<td align=right>{{row[5]}}</td>
+  		</tr>
+  	{% endfor %}
+	</table>
+
+</body>
+</html>

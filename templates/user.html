@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	<title>
+		User Report - Munshi
+	</title>
+</head>
+
+<body>
+	<a href='/' class=hbutton>Home</a>
+	<a href='/report' class=hbutton>Report</a>
+
+	<h1> User Report </h1>
+
+	<form method='post' align="center" style="width: 20%; margin:auto">
+		<label>Name*: </label><input type='text' name="name" list="namelist" required>
+			<datalist id="namelist">
+				{% for a in clist: %}
+					<option value="{{a}}" />
+				{% endfor %}
+			</datalist><br>
+	</form>	
+	
+	<br>
+	<div class="main_menu" align="center">
+		{% for c in clist: %}
+			<a href="/report/user/{{c}}"> {{c}} </a>
+		{% endfor %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="/static/basic.css">
+	<title>
+		Input Data - Munshi
+	</title>
+</head>
+
+<body>
+
+	<a href='/' class=hbutton>Home</a>
+	
+	<h1>
+		Data Input
+	</h1>
+	
+	<p style="font-size: 10px;" align=center> * fields are necessary </p>
+	
+	<div class=inp align="center">
+	<form method='post' align="center">
+		<label>Name*: </label><input type='text' name="name" list="namelist" required>
+			<datalist id="namelist">
+				{% for a in clist: %}
+					<option value="{{a}}" />
+				{% endfor %}
+			</datalist><br>
+		<label>Date*: </label><input type='date' name='date' required> <br> 
+		<label>{{detail1}}: </label><input type='text' value='-' name=detail1> <br>
+		<label>{{detail2}}: </label><input type='text' value='-' name=detail2> <br>
+		<label>{{detail3}}: </label><input type='text' value='-' name=detail3> <br>
+		<label>Credit*: </label><input type='number' value=0 name=credit required> <br>
+		<label>Debit*: </label><input type='number' value=0 name=debit required> <br>
+		<input type='submit' value='Save'>
+	</form>
+	</div>
+</body>
+</html>

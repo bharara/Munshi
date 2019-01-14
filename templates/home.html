@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	<title>
+		Munshi - Account Manager
+	</title>
+</head>
+
+<body class=homebody>
+	<h1> Welcome to Munshi </h1>
+	<h4> Your account manager </h4>
+	<h1> Your total roker is {{ roker }}</h1>
+
+	<br>
+	<div class="main_menu" align="center">
+		<a href="#" class="active">Home</a>
+		<a href="/input">Input Data</a>
+		<a href="/add_client">Add Clients</a>
+		<a href="/report">View Reports</a>
+		<a href="/options">Options</a>
+		<a href="/about">About</a>
+	</div>
+</body>
+</html>

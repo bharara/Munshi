@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	<title>
+		Monthly Report - Munshi
+	</title>
+</head>
+
+<body>
+
+	<a href='/' class=hbutton>Home</a>
+	<a href='/report' class=hbutton>Report</a>
+
+	<h1> Monthly Report </h1>
+
+	<table style="width:50%; margin:auto;">
+		<tr>
+			<th>Month</th>
+			<th>Credit</th>
+			<th>Debit</th>
+			<th>Total</th>
+		</tr>
+	{% for row in month_list %}
+		<tr>
+			<td>{{row[0]}}</td>
+			<td align="right">{{row[1]}}</td>
+			<td align="right">{{row[2]}}</td>
+			<td align="right">{{row[3]}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+</body>
+</html>
