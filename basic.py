@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from openpyxl import load_workbook
 import webbrowser
 from datetime import datetime
@@ -82,8 +82,7 @@ def input_after():
 		# Return to input template with all arguments
 		global name1
 		name1 = name
-		webbrowser.open('http://127.0.0.1:5000/add_client', new=0)
-		# return render_template('add_client.html',clist=clist, detail1=c_detail1, detail2=c_detail2, detail3=c_detail3, detail4=c_detail4, detail5=c_detail5, name=name)
+		return redirect('/add_client')
 
 # Client Addition App
 @app.route('/add_client')
@@ -128,7 +127,7 @@ def user():
 @app.route('/report/user', methods=['POST'])
 def user_after():
 	name = request.form['name']
-	webbrowser.open('http://127.0.0.1:5000/report/user/'+name, new=0)
+	return redirect('/report/user/'+name)
 
 #User Report Shown
 @app.route('/report/user/<name>')
@@ -232,7 +231,7 @@ def label_input_after():
 
 	wb.save('Munshi.xlsx')
 
-	return render_template('options.html')
+	return redirect('/options')
 
 # Change Client Label
 @app.route('/options/client')
@@ -263,7 +262,7 @@ def label_client_after():
 
 	wb.save('Munshi.xlsx')
 
-	return render_template('options.html')
+	return redirect('/options')
 
 # About Page
 @app.route('/about')
@@ -274,4 +273,4 @@ def about():
 # Autodebug and Run the app
 if __name__ == '__main__':
 	webbrowser.open('http://127.0.0.1:5000', new=2, autoraise=True)
-	app.run(debug=False, port=6000)
+	app.run(debug=True)
